@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         float cobertura;
         cobertura = 6;
         float qtdLitrosNecessarios;
-        float qtdLatasNecesarias;
-        float resto;
+        double qtdLatasNecesarias;
+        double preco;
 
         areaAPintar = Float.parseFloat(edtArea.getText().toString());
         qtdLitrosNecessarios = areaAPintar/cobertura;
@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
             qtdLatasNecesarias += 1;
         }
         */
-        respLata.setText("Necessita de "+Math.ceil(qtdLatasNecesarias)+ " latas");
+        qtdLatasNecesarias = Math.ceil(qtdLatasNecesarias);
+        preco = qtdLatasNecesarias * 80;
+        respLata.setText("Necessita de "+qtdLatasNecesarias+ " latas");
+        precoLata.setText("Preço: "+ preco);
     }
 }
