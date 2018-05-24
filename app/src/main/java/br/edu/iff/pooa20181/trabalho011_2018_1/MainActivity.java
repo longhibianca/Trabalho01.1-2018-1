@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 calcularLata();
+
+                calcularGalao();
             }
         });
 
@@ -66,5 +68,25 @@ public class MainActivity extends AppCompatActivity {
         preco = qtdLatasNecesarias * 80;
         respLata.setText("Necessita de "+qtdLatasNecesarias+ " latas");
         precoLata.setText("Preço: "+ preco);
+    }
+
+    public void calcularGalao()
+    {
+        float areaAPintar;
+        float cobertura;
+        cobertura = 6;
+        float qtdLitrosNecessarios;
+        double qtdGaloesNecesarios;
+        double preco;
+
+        areaAPintar = Float.parseFloat(edtArea.getText().toString());
+        qtdLitrosNecessarios = areaAPintar/cobertura;
+
+        qtdGaloesNecesarios = qtdLitrosNecessarios/3.6;
+
+        qtdGaloesNecesarios = Math.ceil(qtdGaloesNecesarios);
+        preco = qtdGaloesNecesarios * 25;
+        respGalao.setText("Necessita de "+qtdGaloesNecesarios+ " galões");
+        precoGalao.setText("Preço: "+ preco);
     }
 }
