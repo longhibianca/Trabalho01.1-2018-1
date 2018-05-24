@@ -14,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
     TextView respGalao;
     TextView respLata;
     TextView respComb;
+    TextView precoLata;
+    TextView precoGalao;
+    TextView precoComb;
 
 
     @Override
@@ -26,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         respGalao = (TextView) findViewById(R.id.respGalao);
         respLata = (TextView) findViewById(R.id.respLatas);
         respComb = (TextView) findViewById(R.id.respComb);
+        precoLata = (TextView) findViewById(R.id.precoLata);
+        precoGalao = (TextView) findViewById(R.id.precoGalao);
+        precoComb = (TextView) findViewById(R.id.precoComb);
 
         btnCalcular.setOnClickListener(new View.OnClickListener(){
             @Override
