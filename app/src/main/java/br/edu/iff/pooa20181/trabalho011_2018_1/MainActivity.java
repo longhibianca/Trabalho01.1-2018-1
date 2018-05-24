@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 calcularLata();
 
                 calcularGalao();
+
+                calcularCombinado();
             }
         });
 
@@ -88,5 +90,52 @@ public class MainActivity extends AppCompatActivity {
         preco = qtdGaloesNecesarios * 25;
         respGalao.setText("Necessita de "+qtdGaloesNecesarios+ " galões");
         precoGalao.setText("Preço: "+ preco);
+    }
+
+    public void calcularCombinado()
+    {
+        float areaAPintar;
+        float cobertura;
+        cobertura = 6;
+        double qtdLitrosNecessarios;
+        int qtdGalao = 0;
+        int qtdLata = 0;
+        double precoLata;
+        double precoGalao;
+
+        areaAPintar = Float.parseFloat(edtArea.getText().toString());
+        qtdLitrosNecessarios = areaAPintar/cobertura;
+
+        do {
+            //10.8 = 3*3.6
+            if(qtdLitrosNecessarios <= 10.8)
+            {
+                if((qtdLitrosNecessarios > 3.6)&&(qtdLitrosNecessarios <= 7.2))
+                {
+                    qtdGalao = qtdGalao + 2;
+                    qtdLitrosNecessarios = qtdLitrosNecessarios - 7.2;
+                }
+                else if((qtdLitrosNecessarios > 0)&&(qtdLitrosNecessarios <= 3.6))
+                {
+                    qtdGalao = qtdGalao + 1;
+                    qtdLitrosNecessarios = qtdLitrosNecessarios - 3.6;
+                }
+                else {
+                    qtdGalao = qtdGalao + 3;
+                    qtdLitrosNecessarios = qtdLitrosNecessarios - 10.8;
+                }
+            }
+            else
+            {
+                qtdLata++;
+                qtdLitrosNecessarios = qtdLitrosNecessarios - 18;
+            }
+        }while(qtdLitrosNecessarios > 0);
+
+        precoLata = qtdLata * 80;
+        precoGalao = qtdGalao * 25;
+
+        respComb.setText("A melhor combinação é de "+qtdLata+" latas e "+qtdGalao+" galões");
+        precoComb.setText("O preco total de latas é: "+precoLata+". O preço total de galões é: "+ precoGalao);
     }
 }
