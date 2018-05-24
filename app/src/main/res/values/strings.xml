@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Trabalho01.1-2018-1</string>
+    <string name="calcular">Calcular</string>
+    <string name="area">Entre com a área em m2</string>
 </resources>
