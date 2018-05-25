@@ -1,5 +1,6 @@
 package br.edu.iff.pooa20181.trabalho011_2018_1;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,11 +37,23 @@ public class MainActivity extends AppCompatActivity {
         btnCalcular.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                calcularLata();
 
-                calcularGalao();
+                if(edtArea.getText().toString().equals(""))
+                {
+                    AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
+                    dlg.setMessage("O campo não pode estar em branco");
+                    dlg.setNeutralButton("OK", null);
+                    dlg.show();
+                }
+                else
+                {
+                    calcularLata();
 
-                calcularCombinado();
+                    calcularGalao();
+
+                    calcularCombinado();
+                }
+
             }
         });
 
